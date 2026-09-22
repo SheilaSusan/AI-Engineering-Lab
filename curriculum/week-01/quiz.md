@@ -15,6 +15,7 @@ Answer all ten, then check against the answer key. A question marked *(see Conce
    d. `save_all()` always adds 200 header rows
 
 3. **Short answer.** In the seed cell, `first_five(42)` returns `[89250, 773956, 654571, 438878, 433015]` on its first call. What does it return on the *second* call with the same seed, and why? *(see notebook "seed habit" cell)*
+[89250, 773956, 654571, 438878, 433015]
 
 4. **Multiple choice.** What is the modern, recommended NumPy form for seeded randomness, and why is it preferred over the legacy global form? *(see Concepts §6)*
    a. `np.random.seed(42)`, simpler and thread-safe
@@ -23,6 +24,7 @@ Answer all ten, then check against the answer key. A question marked *(see Conce
    d. `np.random.RandomState`, deprecated but required
 
 5. **Short answer.** The environment notebook's final cell computes `READINESS = CHECK_PYTHON + CHECK_LIBS + CHECK_ZORO + CHECK_GIT + CHECK_NUMPY + CHECK_SEED`. What does a score of 6 mean, and what should you do if it is 5? *(see notebook final cell)*
+Proves you have a reproducible Python environment to work on. If score is 5, run the walk-up path cell.
 
 6. **Multiple choice.** In `zoro/data.py`, which column is a *foreign key* into the `lanes` table? *(see Concepts §2, data dictionary)*
    a. `shipments.shipment_id`
@@ -37,6 +39,9 @@ Answer all ten, then check against the answer key. A question marked *(see Conce
    d. A Git merge conflict in `data-dictionary.md`
 
 8. **Short answer.** Name the three data-quality flaws planted in the Week 1 output, and give the approximate count of each under seed 42. *(see Concepts §6, verification cell)*
+df.sample(frac=0.002) - concatenates 200 duplicate rows (~0.2%)
+0.3% sample blanks 301 weight_kg values.
+lanes_df.sample(frac=0.05) blanks 1 distance_km (5% of 20 lanes)
 
 9. **Multiple choice.** The data dictionary in `02-zorologistics-data-generator.ipynb` writes `data/data-dictionary.md` from a list of tuples. What four fields does each tuple carry? *(see notebook "data dictionary" cell)*
    a. table, column, dtype, meaning
@@ -45,7 +50,7 @@ Answer all ten, then check against the answer key. A question marked *(see Conce
    d. name, type, nulls, source
 
 10. **Short answer.** Why is the same seed a *contract* ("same seed, same company") for the whole program, rather than just a convenience? *(see Concepts §6 and the Friday Zorost gate)*
-
+Same seed, same data.
 ## Answer key
 
 1. **b.** Ng's four areas are building/deploying AI applications, software engineering fundamentals, using coding agents, and shaping the build. Prompt engineering and RAG are building blocks *within* area one, not the four areas themselves.
